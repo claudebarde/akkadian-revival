@@ -1,12 +1,25 @@
+<style>
+  @media only screen and (min-width: 1024px) {
+    .home-pic {
+      max-height: 65vh;
+    }
+  }
+</style>
+
 <section class="hero is-fullheight-with-navbar has-background-white-bis">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-half">
-          <img src="babylon.png" alt="Babylon" />
+          <p class="title is-hidden-desktop has-text-centered">
+            Welcome to the
+            <br />
+            Akkadian Revival Project!
+          </p>
+          <img src="babylon.png" alt="Babylon" class="home-pic" />
         </div>
         <div class="column is-half has-text-centered">
-          <p class="title">
+          <p class="title is-hidden-mobile">
             Welcome to the
             <br />
             Akkadian Revival Project!
@@ -29,7 +42,9 @@
           </p>
         </div>
       </div>
-
     </div>
+  </div>
+  <div class="hero-foot has-text-centered is-size-7">
+    :: Copyright Claude Barde 2020 ::
   </div>
 </section>

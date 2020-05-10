@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Akkadian;
+  src: url("./fonts/Akkadian.ttf");
+}
+
 html,
 body {
   position: relative;
@@ -19,4 +24,14 @@ a:hover {
 
 a:visited {
   color: rgb(0, 80, 160);
+}
+
+main {
+  padding: 80px 20px 20px 20px;
+  height: 95vh;
+  overflow: auto;
+}
+
+.cuneiform-sign {
+  font-family: Akkadian !important;
 }

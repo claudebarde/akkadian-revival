@@ -5,13 +5,15 @@
     box-shadow: -1px 3px 22px 0px rgba(203, 213, 224, 1);
   }
 
-  .logo-img {
-    max-height: 3rem;
-    margin-right: 10px;
-  }
-
   .title-logo {
     text-align: center;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .logo-img {
+      max-height: 3rem;
+      padding-right: 20px;
+    }
   }
 </style>
 
@@ -22,7 +24,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="#/">
       <img src="logo.png" class="logo-img" />
-      <span class="title is-4 title-logo">
+      <span class="title is-4 title-logo is-hidden-mobile">
         Akkadian
         <br />
         Revival

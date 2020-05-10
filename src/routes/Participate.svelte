@@ -1,1 +1,1 @@
-<main>Participate</main>
+<main>Coming soon!</main>
