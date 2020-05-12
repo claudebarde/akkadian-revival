@@ -172,25 +172,25 @@
             transition:slide={{ y: 20, duration: 200 }}>
             <div class="dropdown-content">
               <a
-                href="#"
+                href="#/"
                 class={`dropdown-item is-size-7 ${verbType === 'allverbs' && 'is-active'}`}
                 on:click|preventDefault={() => selectVerbType('allverbs')}>
                 All verbs
               </a>
               <a
-                href="#"
+                href="#/"
                 class={`dropdown-item is-size-7 ${verbType === 'Iweak' && 'is-active'}`}
                 on:click|preventDefault={() => selectVerbType('Iweak')}>
                 I-weak verbs
               </a>
               <a
-                href="#"
+                href="#/"
                 class={`dropdown-item is-size-7 ${verbType === 'IIweak' && 'is-active'}`}
                 on:click|preventDefault={() => selectVerbType('IIweak')}>
                 II-weak verbs
               </a>
               <a
-                href="#"
+                href="#/"
                 class={`dropdown-item is-size-7 ${verbType === 'IIIweak' && 'is-active'}`}
                 on:click|preventDefault={() => selectVerbType('IIIweak')}>
                 III-weak verbs
@@ -210,7 +210,7 @@
             <li
               on:click|preventDefault={() => selectNewVerb(verb.split(' ')[0])}
               class="menuItem">
-              <a href="#" id={verb.split(' ')[0]}>
+              <a href="#/" id={verb.split(' ')[0]}>
                 {@html verb}
               </a>
             </li>

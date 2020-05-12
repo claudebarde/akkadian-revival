@@ -23,7 +23,7 @@
   aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="#/">
-      <img src="logo.png" class="logo-img" />
+      <img src="logo.png" class="logo-img" alt="logo" />
       <span class="title is-4 title-logo is-hidden-mobile">
         Akkadian
         <br />
@@ -32,6 +32,7 @@
     </a>
 
     <a
+      href="#/"
       role="button"
       class="navbar-burger burger"
       aria-label="menu"

@@ -183,7 +183,7 @@
           <li
             class="has-background-white"
             on:click|preventDefault={() => insertTextAtCursor(textareaRef, chars.char)}>
-            <a href="#">
+            <a href="#/">
               {chars.char}
               <span class="latin-code is-size-7">({chars.corr})</span>
             </a>
