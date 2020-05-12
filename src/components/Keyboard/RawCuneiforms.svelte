@@ -22,6 +22,8 @@
 
   afterUpdate(() => {
     rawString = $store.input;
+    // replaces new line with <br>
+    rawString = rawString.replace(/\n/g, " <br> ");
     for (let word in $store.words) {
       if ($store.words[word].syllables !== "ERROR") {
         // if word is a logogram
@@ -32,7 +34,10 @@
             $store.syllabogramsToSwitch[word]
           );
         } else {
-          const regex = new RegExp(word, "g");
+          const regex = new RegExp(
+            `(?<=[\\s,.:;"']|^)${word}(?=[\\s,.:;"']|$)`,
+            "g"
+          );
           rawString = rawString.replace(
             regex,
             $store.words[word].cuneiforms
@@ -62,7 +67,7 @@
       on:click={copyToClipboard}>
       copy
     </div>
-    {rawString}
+    {@html rawString}
   </div>
 {:else}
   <div>Cuneiform Rendering</div>

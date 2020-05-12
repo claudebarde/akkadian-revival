@@ -2,10 +2,10 @@
   import { onMount } from "svelte";
   import { push } from "svelte-spa-router";
   import store from "../store.js";
-  import { monoconsonants as syllabary } from "../databases/syllabary.json";
-  import { biconsonants } from "../databases/syllabary.json";
-  import sumerianCuneiforms from "../databases/sumerianCuneiforms.json";
-  import dictionary from "../databases/dictionary.json";
+  import { monoconsonants as syllabary } from "../../../databases/syllabary.json";
+  import { biconsonants } from "../../../databases/syllabary.json";
+  import sumerianCuneiforms from "../../../databases/sumerianCuneiforms.json";
+  import dictionary from "../../../databases/dictionary.json";
 
   let cuneiformSuggestions = [];
   let input = "";

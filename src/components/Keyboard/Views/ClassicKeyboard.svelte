@@ -9,8 +9,8 @@
   import store from "../store.js";
   import CuneiformWord from "../CuneiformWord.svelte";
   import RawCuneiforms from "../RawCuneiforms.svelte";
-  import dictionary from "../databases/dictionary.json";
-  import { monoconsonants as syllabary } from "../databases/syllabary.json";
+  import dictionary from "../../../databases/dictionary.json";
+  import { monoconsonants as syllabary } from "../../../databases/syllabary.json";
 
   let newLinesPos = [];
   let textareaRef;
@@ -219,12 +219,12 @@
         <ul>
           <li
             class:is-active={selectedTab === 'detailed'}
-            on:click={() => (selectedTab = 'detailed')}>
+            on:click|preventDefault={() => (selectedTab = 'detailed')}>
             <a href="#/">Detailed</a>
           </li>
           <li
             class:is-active={selectedTab === 'raw'}
-            on:click={() => (selectedTab = 'raw')}>
+            on:click|preventDefault={() => (selectedTab = 'raw')}>
             <a href="#/">Raw</a>
           </li>
         </ul>

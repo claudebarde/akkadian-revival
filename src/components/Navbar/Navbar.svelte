@@ -47,6 +47,7 @@
     <div class="navbar-end">
       <a class="navbar-item" href="#/conjugator">Conjugator</a>
       <a class="navbar-item" href="#/keyboard">Keyboard</a>
+      <a class="navbar-item" href="#/texts">Texts</a>
       <a class="navbar-item" href="#/participate">Participate</a>
     </div>
   </div>

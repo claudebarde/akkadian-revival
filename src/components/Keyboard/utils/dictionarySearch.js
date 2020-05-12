@@ -1,4 +1,4 @@
-import dictionary from "../databases/dictionary.json";
+import dictionary from "../../../databases/dictionary.json";
 
 export default (word) => {
   // gets initial letter
