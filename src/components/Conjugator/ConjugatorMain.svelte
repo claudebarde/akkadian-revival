@@ -337,7 +337,7 @@
                 <div class="column is-3 is-offset-2">
                   <ImperativeBox />
                 </div>
-                <div class="column is-4 is-offset-1">
+                <div class="column is-5">
                   <PrecativeBox />
                 </div>
               </div>

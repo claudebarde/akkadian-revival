@@ -54,9 +54,8 @@
 </script>
 
 <style>
-  .conjugation-person {
-    font-size: 0.8rem;
-    margin-right: 8px;
+  .verbDisplay {
+    background-color: transparent;
   }
 </style>
 
@@ -72,7 +71,7 @@
           <p
             style="cursor:pointer;"
             on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
-            <span class="conjugation-person has-text-grey-light">{ps}:</span>
+            <span class="has-text-grey-light is-size-7">{ps}:</span>
             {#if $state.rootHighlight}
               <span class="has-text-black">
                 {@html insertVerb(verb[ps], ps)}
@@ -90,7 +89,7 @@
           <p
             style="cursor:pointer;"
             on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
-            <span class="conjugation-person has-text-grey-light">{ps}:</span>
+            <span class="has-text-grey-light is-size-7">{ps}:</span>
             {#if $state.rootHighlight}
               <span class="has-text-black">
                 {@html insertVerb(verb[ps], ps)}
@@ -115,40 +114,56 @@
   <div class="message-body">
     <div class="columns is-mobile">
       <div class="column is-half">
-        {#each personsSing as ps}
-          <p
-            style="cursor:pointer;"
-            on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
-            <span class="conjugation-person has-text-grey-light">{ps}:</span>
-            {#if $state.rootHighlight}
-              <span class="has-text-black">
-                {@html insertVerb(verb[ps], ps)}
-              </span>
-            {:else}
-              <span class="has-text-black">
-                {@html insertVentive(verb[ps], ps)}
-              </span>
-            {/if}
-          </p>
-        {/each}
+        <table class="table is-narrow verbDisplay">
+          <tbody>
+            {#each personsSing as ps}
+              <tr
+                style="cursor:pointer;"
+                on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
+                <td>
+                  <span class="has-text-grey-light is-size-7">{ps}:</span>
+                </td>
+                <td>
+                  {#if $state.rootHighlight}
+                    <span class="has-text-black">
+                      {@html insertVerb(verb[ps], ps)}
+                    </span>
+                  {:else}
+                    <span class="has-text-black">
+                      {@html insertVentive(verb[ps], ps)}
+                    </span>
+                  {/if}
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
       </div>
       <div class="column is-half">
-        {#each personsPlur as ps}
-          <p
-            style="cursor:pointer;"
-            on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
-            <span class="conjugation-person has-text-grey-light">{ps}:</span>
-            {#if $state.rootHighlight}
-              <span class="has-text-black">
-                {@html insertVerb(verb[ps], ps)}
-              </span>
-            {:else}
-              <span class="has-text-black">
-                {@html insertVentive(verb[ps], ps)}
-              </span>
-            {/if}
-          </p>
-        {/each}
+        <table class="table is-narrow verbDisplay">
+          <tbody>
+            {#each personsPlur as ps}
+              <tr
+                style="cursor:pointer;"
+                on:click={() => displayInfo(insertVentive(verb[ps], ps), ps)}>
+                <td>
+                  <span class="has-text-grey-light is-size-7">{ps}:</span>
+                </td>
+                <td>
+                  {#if $state.rootHighlight}
+                    <span class="has-text-black">
+                      {@html insertVerb(verb[ps], ps)}
+                    </span>
+                  {:else}
+                    <span class="has-text-black">
+                      {@html insertVentive(verb[ps], ps)}
+                    </span>
+                  {/if}
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

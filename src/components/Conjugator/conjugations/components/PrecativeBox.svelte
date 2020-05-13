@@ -71,80 +71,102 @@
     <div class="message-body">
       <div class="columns is-mobile">
         <div class="column is-half">
-          {#each personSing as ps}
-            <p>
-              <span class="conjugation-person has-text-grey-light">{ps}:</span>
-              {#if $state.rootHighlight}
-                <span class="has-text-black">
-                  {@html highlightRoot({
-                    verb: $state.ventive
-                      ? addVentive({
-                          verb: $state.precative[ps],
-                          ps,
-                          conjugation,
+          <table class="table is-narrow" style="background-color:transparent">
+            <tbody>
+              {#each personSing as ps}
+                <tr>
+                  <td>
+                    <span
+                      class="conjugation-person has-text-grey-light is-size-7">
+                      {ps}:
+                    </span>
+                  </td>
+                  <td>
+                    {#if $state.rootHighlight}
+                      <span class="has-text-black">
+                        {@html highlightRoot({
+                          verb: $state.ventive
+                            ? addVentive({
+                                verb: $state.precative[ps],
+                                ps,
+                                conjugation,
+                                root: $state.root,
+                                infinitive: $state.infinitive
+                              })
+                            : $state.precative[ps],
                           root: $state.root,
-                          infinitive: $state.infinitive
-                        })
-                      : $state.precative[ps],
-                    root: $state.root,
-                    conjugation,
-                    ps,
-                    infinitive: $state.infinitive,
-                    ventive: $state.ventive,
-                    wVerbType: $state.verbClass
-                  })}
-                </span>
-              {:else}
-                <span class="has-text-black">
-                  {@html $state.ventive ? addVentive({
-                        verb: $state.precative[ps],
-                        ps,
-                        conjugation,
-                        root: $state.root,
-                        infinitive: $state.infinitive
-                      }) : $state.precative[ps]}
-                </span>
-              {/if}
-            </p>
-          {/each}
+                          conjugation,
+                          ps,
+                          infinitive: $state.infinitive,
+                          ventive: $state.ventive,
+                          wVerbType: $state.verbClass
+                        })}
+                      </span>
+                    {:else}
+                      <span class="has-text-black">
+                        {@html $state.ventive ? addVentive({
+                              verb: $state.precative[ps],
+                              ps,
+                              conjugation,
+                              root: $state.root,
+                              infinitive: $state.infinitive
+                            }) : $state.precative[ps]}
+                      </span>
+                    {/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
         </div>
         <div class="column is-half">
-          {#each personPlur as ps}
-            <p>
-              <span class="conjugation-person has-text-grey-light">{ps}:</span>
-              {#if $state.rootHighlight}
-                <span class="has-text-black">
-                  {@html highlightRoot({
-                    verb: $state.ventive
-                      ? addVentive({
-                          verb: $state.precative[ps],
-                          ps,
-                          conjugation,
+          <table class="table is-narrow" style="background-color:transparent">
+            <tbody>
+              {#each personPlur as ps}
+                <tr>
+                  <td>
+                    <span
+                      class="conjugation-person has-text-grey-light is-size-7">
+                      {ps}:
+                    </span>
+                  </td>
+                  <td>
+                    {#if $state.rootHighlight}
+                      <span class="has-text-black">
+                        {@html highlightRoot({
+                          verb: $state.ventive
+                            ? addVentive({
+                                verb: $state.precative[ps],
+                                ps,
+                                conjugation,
+                                root: $state.root,
+                                infinitive: $state.infinitive
+                              })
+                            : $state.precative[ps],
                           root: $state.root,
-                          infinitive: $state.infinitive
-                        })
-                      : $state.precative[ps],
-                    root: $state.root,
-                    conjugation,
-                    ps,
-                    infinitive: $state.infinitive,
-                    ventive: $state.ventive,
-                    wVerbType: $state.verbClass
-                  })}
-                </span>
-              {:else}
-                <span class="has-text-black">
-                  {@html $state.ventive ? addVentive({
-                        verb: $state.precative[ps],
-                        ps,
-                        conjugation,
-                        root: $state.root,
-                        infinitive: $state.infinitive
-                      }) : $state.precative[ps]}
-                </span>
-              {/if}
-            </p>
-          {/each}
+                          conjugation,
+                          ps,
+                          infinitive: $state.infinitive,
+                          ventive: $state.ventive,
+                          wVerbType: $state.verbClass
+                        })}
+                      </span>
+                    {:else}
+                      <span class="has-text-black">
+                        {@html $state.ventive ? addVentive({
+                              verb: $state.precative[ps],
+                              ps,
+                              conjugation,
+                              root: $state.root,
+                              infinitive: $state.infinitive
+                            }) : $state.precative[ps]}
+                      </span>
+                    {/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -158,80 +180,102 @@
     <div class="message-body">
       <div class="columns">
         <div class="column is-half">
-          {#each personSing as ps}
-            <p>
-              <span class="conjugation-person has-text-grey-light">{ps}:</span>
-              {#if $state.rootHighlight}
-                <span class="has-text-black">
-                  {@html highlightRoot({
-                    verb: $state.ventive
-                      ? addVentive({
-                          verb: $state.precative[ps],
-                          ps,
-                          conjugation,
+          <table class="table is-narrow" style="background-color:transparent">
+            <tbody>
+              {#each personSing as ps}
+                <tr>
+                  <td>
+                    <span
+                      class="conjugation-person has-text-grey-light is-size-7">
+                      {ps}:
+                    </span>
+                  </td>
+                  <td>
+                    {#if $state.rootHighlight}
+                      <span class="has-text-black">
+                        {@html highlightRoot({
+                          verb: $state.ventive
+                            ? addVentive({
+                                verb: $state.precative[ps],
+                                ps,
+                                conjugation,
+                                root: $state.root,
+                                infinitive: $state.infinitive
+                              })
+                            : $state.precative[ps],
                           root: $state.root,
-                          infinitive: $state.infinitive
-                        })
-                      : $state.precative[ps],
-                    root: $state.root,
-                    conjugation,
-                    ps,
-                    infinitive: $state.infinitive,
-                    ventive: $state.ventive,
-                    wVerbType: $state.verbClass
-                  })}
-                </span>
-              {:else}
-                <span class="has-text-black">
-                  {@html $state.ventive ? addVentive({
-                        verb: $state.precative[ps],
-                        ps,
-                        conjugation,
-                        root: $state.root,
-                        infinitive: $state.infinitive
-                      }) : $state.precative[ps]}
-                </span>
-              {/if}
-            </p>
-          {/each}
+                          conjugation,
+                          ps,
+                          infinitive: $state.infinitive,
+                          ventive: $state.ventive,
+                          wVerbType: $state.verbClass
+                        })}
+                      </span>
+                    {:else}
+                      <span class="has-text-black">
+                        {@html $state.ventive ? addVentive({
+                              verb: $state.precative[ps],
+                              ps,
+                              conjugation,
+                              root: $state.root,
+                              infinitive: $state.infinitive
+                            }) : $state.precative[ps]}
+                      </span>
+                    {/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
         </div>
         <div class="column is-half">
-          {#each personPlur as ps}
-            <p>
-              <span class="conjugation-person has-text-grey-light">{ps}:</span>
-              {#if $state.rootHighlight}
-                <span class="has-text-black">
-                  {@html highlightRoot({
-                    verb: $state.ventive
-                      ? addVentive({
-                          verb: $state.precative[ps],
-                          ps,
-                          conjugation,
+          <table class="table is-narrow" style="background-color:transparent">
+            <tbody>
+              {#each personPlur as ps}
+                <tr>
+                  <td>
+                    <span
+                      class="conjugation-person has-text-grey-light is-size-7">
+                      {ps}:
+                    </span>
+                  </td>
+                  <td>
+                    {#if $state.rootHighlight}
+                      <span class="has-text-black">
+                        {@html highlightRoot({
+                          verb: $state.ventive
+                            ? addVentive({
+                                verb: $state.precative[ps],
+                                ps,
+                                conjugation,
+                                root: $state.root,
+                                infinitive: $state.infinitive
+                              })
+                            : $state.precative[ps],
                           root: $state.root,
-                          infinitive: $state.infinitive
-                        })
-                      : $state.precative[ps],
-                    root: $state.root,
-                    conjugation,
-                    ps,
-                    infinitive: $state.infinitive,
-                    ventive: $state.ventive,
-                    wVerbType: $state.verbClass
-                  })}
-                </span>
-              {:else}
-                <span class="has-text-black">
-                  {@html $state.ventive ? addVentive({
-                        verb: $state.precative[ps],
-                        ps,
-                        conjugation,
-                        root: $state.root,
-                        infinitive: $state.infinitive
-                      }) : $state.precative[ps]}
-                </span>
-              {/if}
-            </p>
-          {/each}
+                          conjugation,
+                          ps,
+                          infinitive: $state.infinitive,
+                          ventive: $state.ventive,
+                          wVerbType: $state.verbClass
+                        })}
+                      </span>
+                    {:else}
+                      <span class="has-text-black">
+                        {@html $state.ventive ? addVentive({
+                              verb: $state.precative[ps],
+                              ps,
+                              conjugation,
+                              root: $state.root,
+                              infinitive: $state.infinitive
+                            }) : $state.precative[ps]}
+                      </span>
+                    {/if}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -568,6 +568,7 @@ const lexicon = {
   },
   dâkum: {
     themeVowel: "u",
+    durativeVowel: "a",
     root: ["d", "Ø", "k"],
     verbalAdjectiveVowel: undefined,
     verbClass: "active",
@@ -596,8 +597,8 @@ const lexicon = {
     meaning: "to say, to speak, to give orders",
   },
   sadārum: {
-    themeVowel: "a",
-    durativeVowel: "u",
+    themeVowel: "u",
+    durativeVowel: "a",
     root: ["s", "d", "r"],
     verbalAdjectiveVowel: "i",
     meaning: "to arrange, to put in order",
