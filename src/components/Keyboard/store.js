@@ -97,6 +97,9 @@ const store = () => {
         ),
       }));
     },
+    resetSuggestions: () => {
+      update((currentStore) => ({ ...currentStore, suggestions: [] }));
+    },
     updateStressedWords: (words) => {
       update((currentStore) => ({ ...currentStore, stressedWords: words }));
     },

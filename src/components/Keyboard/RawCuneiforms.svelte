@@ -1,6 +1,8 @@
 <script>
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, createEventDispatcher } from "svelte";
   import store from "./store.js";
+
+  const dispatch = createEventDispatcher();
 
   let rawString = "";
 
@@ -22,8 +24,8 @@
 
   afterUpdate(() => {
     rawString = $store.input;
-    // replaces new line with <br>
-    rawString = rawString.replace(/\n/g, " <br> ");
+    // replaces new line with <br> and dashes with nothing
+    rawString = rawString.replace(/\n/g, " <br> ").replace(/-/g, "");
     for (let word in $store.words) {
       if ($store.words[word].syllables !== "ERROR") {
         // if word is a logogram
@@ -48,7 +50,7 @@
       }
     }
     if ($store.interpunct) {
-      rawString = rawString.replace(" ", "᛫");
+      rawString = rawString.replace(/\s+/g, "᛫");
     }
   });
 </script>
@@ -63,9 +65,12 @@
   <div class="rendering is-size-4 cuneiform-sign">
     <div
       class="has-text-grey-light is-size-7"
-      style="float:right;cursor:pointer"
-      on:click={copyToClipboard}>
-      copy
+      style="float:right;cursor:pointer">
+      <span on:click={copyToClipboard}>copy</span>
+      <br />
+      <span on:click={() => dispatch('openAdvancedKeyboard', rawString)}>
+        edit
+      </span>
     </div>
     {@html rawString}
   </div>

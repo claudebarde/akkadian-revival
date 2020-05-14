@@ -32,7 +32,10 @@
     // updates input
     store.updateInput(text);
     // removes all punctuation
-    text = text.trim().replace(/[.,\/\?#!$%\^&\*;:{}=\-_`~()]/g, "");
+    text = text
+      .trim()
+      .replace(/[.,\/\?#!$%\^&\*;:{}=\-_`~()]/g, "")
+      .replace(/ {2,}/g, " ");
     // calculates new lines positions in textarea to insert <br> in cuneiforms rendering
     const lines = text.split(/[\r\n]/);
     newLinesPos = [];
@@ -46,7 +49,7 @@
             : [...newLinesPos, lastPos + newLinesPos[newLinesPos.length - 1]];
       });
     }
-    const words = text.split(/\s/g);
+    const words = text.split(/\s/g).filter(el => el);
     // parses syllables
     parsedSyllables = words.map((word, index) => syllableParser(word, index));
     // generates cuneiforms
@@ -123,6 +126,7 @@
     store.updateInput("");
     store.resetWords();
     store.updateStressedWords([]);
+    store.resetSuggestions();
   });
 </script>
 
@@ -229,7 +233,7 @@
           </li>
         </ul>
       </div>
-      <div class="cuneiforms">
+      <div class="cuneiforms has-text-left">
         {#if selectedTab === 'detailed'}
           {#each $store.input
             .trim()
@@ -246,7 +250,7 @@
             <span>Cuneiform Rendering</span>
           {/each}
         {:else if selectedTab === 'raw'}
-          <RawCuneiforms />
+          <RawCuneiforms on:openAdvancedKeyboard />
         {/if}
       </div>
       <div class="columns is-multiline suggestions">

@@ -2,6 +2,8 @@
   import ClassicKeyboard from "./Views/ClassicKeyboard.svelte";
   import AdvancedKeyboard from "./Views/AdvancedKeyboard.svelte";
   import store from "./store.js";
+
+  let defaultAdvancedKeyboardValue = "";
 </script>
 
 <style>
@@ -30,8 +32,12 @@
     </div>
   </div>
   {#if $store.view === 'classic'}
-    <ClassicKeyboard />
+    <ClassicKeyboard
+      on:openAdvancedKeyboard={e => {
+        defaultAdvancedKeyboardValue = e.detail.replace(/<br>/g, '\r\n');
+        store.changeView('advanced');
+      }} />
   {:else if $store.view === 'advanced'}
-    <AdvancedKeyboard />
+    <AdvancedKeyboard cuneiforms={defaultAdvancedKeyboardValue} />
   {/if}
 </main>

@@ -1,18 +1,20 @@
 <script>
   import { onMount } from "svelte";
   import { push } from "svelte-spa-router";
+  import insertTextAtCursor from "insert-text-at-cursor";
   import store from "../store.js";
   import { monoconsonants as syllabary } from "../../../databases/syllabary.json";
   import { biconsonants } from "../../../databases/syllabary.json";
   import sumerianCuneiforms from "../../../databases/sumerianCuneiforms.json";
   import dictionary from "../../../databases/dictionary.json";
 
+  export let cuneiforms = "";
+
   let cuneiformSuggestions = [];
   let input = "";
-  let cuneiforms = "";
   let transcription = [];
   let selectedCuneiform = 0;
-  let charCorrespondences, unicodeCorrespondences;
+  let charCorrespondences, unicodeCorrespondences, textareaRef;
 
   const processInput = event => {
     cuneiformSuggestions = [];
@@ -82,7 +84,8 @@
   };
 
   const insertCuneiform = sign => {
-    cuneiforms += sign;
+    insertTextAtCursor(textareaRef, sign);
+    //cuneiforms += sign;
     input = "";
     cuneiformSuggestions = [];
     selectedCuneiform = 0;
@@ -118,6 +121,7 @@
   };
 
   onMount(() => {
+    textareaRef = document.getElementById("textarea-cuneiforms");
     charCorrespondences = $store.charCorrespondences.filter(
       corr => !["â", "ê", "î", "û"].includes(corr.char)
     );
@@ -158,33 +162,10 @@
     <div class="box cuneiform-box">
       <h4 class="title is-4">Cuneiforms</h4>
       <textarea
+        id="textarea-cuneiforms"
         class="textarea cuneiform-rendering cuneiform-sign is-size-4"
         bind:value={cuneiforms}
         on:input={event => makeTranscription(event.target.value)} />
-      <div class="transcription has-text-left">
-        {#each transcription as el}
-          <div class="dropdown is-hoverable">
-            <div class="dropdown-trigger">
-              <button
-                class="button"
-                aria-haspopup="true"
-                aria-controls="dropdown-cuneiform">
-                <span class="cuneiform-sign is-size-5" style="margin-top:-3px">
-                  {el.cuneiform}
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-cuneiform" role="menu">
-              <div class="dropdown-content">
-                {#each el.values as value}
-                  <div class="dropdown-item is-size-7">{value}</div>
-                {/each}
-              </div>
-            </div>
-          </div>
-          &nbsp;
-        {:else}No text{/each}
-      </div>
     </div>
     <div class="box cuneiform-input">
       <input
@@ -212,6 +193,32 @@
         {:else}
           <button class="button is-medium is-static">No text</button>
         {/each}
+      </div>
+    </div>
+    <div class="box">
+      <div class="buttons transcription has-text-left">
+        {#each transcription as el}
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button
+                class="button"
+                aria-haspopup="true"
+                aria-controls="dropdown-cuneiform">
+                <span class="cuneiform-sign is-size-5" style="margin-top:-3px">
+                  {el.cuneiform}
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-cuneiform" role="menu">
+              <div class="dropdown-content">
+                {#each el.values as value}
+                  <div class="dropdown-item is-size-7">{value}</div>
+                {/each}
+              </div>
+            </div>
+          </div>
+          &nbsp;
+        {:else}No text{/each}
       </div>
     </div>
   </div>
