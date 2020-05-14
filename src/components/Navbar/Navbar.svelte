@@ -94,7 +94,7 @@
       <a class="navbar-item" href="#/keyboard">Keyboard</a>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#/" on:click={e => e.preventDefault()}>
-          More
+          Resources
         </a>
 
         <div class="navbar-dropdown">
@@ -150,6 +150,18 @@
         <ul class="menu-list">
           <li>
             <a href="#/texts" on:click={() => (openSidebar = false)}>Texts</a>
+          </li>
+          <li>
+            <a>Contact</a>
+          </li>
+          <li>
+            <a
+              class="navbar-item"
+              href="https://github.com/claudebarde/akkadian-revival"
+              target="_blank"
+              rel="noopener noreferrer">
+              Github
+            </a>
           </li>
         </ul>
       </div>
