@@ -4,6 +4,7 @@
   import state from "./state/state";
 
   import Sidebar from "./Sidebar/Sidebar.svelte";
+  import SidebarMobile from "./Sidebar/SidebarMobile.svelte";
   import InfinitiveBox from "./conjugations/components/InfinitiveBox.svelte";
   import NonFiniteFormsBox from "./conjugations/components/NonFiniteFormsBox.svelte";
   import PredicativeBox from "./conjugations/components/PredicativeBox.svelte";
@@ -140,7 +141,7 @@
 
 <main>
   <div class="columns" style="height:100%">
-    <div class="column is-hidden-touch is-2">
+    <div class="column is-hidden-mobile is-2">
       <Sidebar
         on:selectVerb={event => {
           const verb = event.detail;
@@ -149,7 +150,12 @@
     </div>
     {#if !verbInput}
       <div class="column is-10 welcome">
-        <h1 class="title is-5">Select a verb in the left panel to start.</h1>
+        <h1 class="title is-5 is-hidden-mobile">
+          Select a verb in the left panel to start
+        </h1>
+        <h1 class="title is-5 is-hidden-desktop">
+          Select a verb below to start
+        </h1>
         <h2 class="subtitle is-6">Last update: {lastUpdate}</h2>
         <br />
         <div class="notification is-warning errorWarning is-size-7-mobile">
@@ -517,4 +523,9 @@
     </div>
   </div>
 </main>
+<SidebarMobile
+  on:selectVerb={event => {
+    const verb = event.detail;
+    validateVerb(verb);
+  }} />
 <InfoModal />
