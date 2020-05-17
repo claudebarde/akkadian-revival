@@ -281,7 +281,7 @@ const lexicon = {
     verbalAdjectiveVowel: "i",
     verbClass: "active",
     I_eVerb: true,
-    meaning: "to leave, to divorce",
+    meaning: "to enter",
   },
   ešērum: {
     themeVowel: "i",
